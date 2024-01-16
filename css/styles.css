@@ -1,0 +1,122 @@
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  --Dark-purple-alfa: hsla(292, 83%, 50%, 0.674);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  background-image: url(/assets/images/background-pattern-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--Light-pink);
+}
+
+.main {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 140px 25px 25px;
+  .accordion {
+    padding: 30px 26px 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--White);
+
+    .title {
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      .title__start {
+        width: 22px;
+        height: 22px;
+      }
+      .title__FAQ {
+        font-size: 22px;
+        color: var(--Dark-purple);
+      }
+    }
+    .details {
+      .details1 {
+        .details__title {
+          margin-bottom: 30px;
+          font-weight: 700;
+          font-size: 18px;
+          color: var(--Dark-purple);
+          transition: color 500ms ease-out;
+        }
+        .details__title:focus,
+        .details__title:hover {
+          cursor: pointer;
+          color: var(--Dark-purple-alfa);
+        }
+        .details__text {
+          margin-bottom: 20px;
+          line-height: 1.5em;
+          color: var(--Grayish-purple);
+        }
+      }
+    }
+    .details__line {
+      margin-bottom: 25px;
+      border: 1px solid var(--Light-pink);
+    }
+  }
+  animation: opacity 3000ms ease;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    transform: translatey(-30%);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.attribution {
+  animation: opacity 3000ms step-end;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  animation: opacity 3000ms step-end;
+  color: var(--Dark-purple-alfa);
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    background-image: url(../assets/images/background-pattern-desktop.svg);
+  }
+  .main {
+    padding: 0;
+    margin-top: 164px;
+    max-width: 1440px;
+    .accordion {
+      margin: 0 auto;
+      width: 600px;
+      .title {
+        .title__start {
+          width: 37px;
+          height: 37px;
+        }
+        .title__FAQ {
+          font-size: 37px;
+        }
+      }
+    }
+  }
+}
